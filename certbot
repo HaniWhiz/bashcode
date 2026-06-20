@@ -1,0 +1,14 @@
+ sudo env HTTPS_PROXY=http://127.0.0.1:10809 certbot certonly --manual --preferred-challenges dns --agree-tos --register-unsafely-without-email -d ma.mra1.ir
+
+
+sudo env certbot certonly --manual --preferred-challenges dns --agree-tos --register-unsafely-without-email -d h3.honeynetwork.ir
+
+
+
+sudo apt -o Acquire::http::Proxy="http://127.0.0.1:10809" install certbot
+
+sudo apt -o Acquire::http::Proxy="http://127.0.0.1:10809" update 
+
+pkill -f xray
+nohup ~/xray/xray run -config ~/xray/config.json > ~/xray/xray.log 2>&1 &
+
